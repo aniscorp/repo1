@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Wrapper Form</title>
+</head>
+<body>
+  <h2>Enter Text to Pass to Website</h2>
+  <form id="wrapperForm" onsubmit="redirectToSite(event)">
+    <input type="text" id="userInput" placeholder="Type something..." required />
+    <button type="submit">Go</button>
+  </form>
+
+  <script>
+    function redirectToSite(event) {
+      event.preventDefault(); // Prevent form from submitting normally
+      const text = document.getElementById('userInput').value;
+      const encodedText = encodeURIComponent(text); // Encode for URL safety
+      const targetURL = `https://example.com/search?q=${encodedText}`; // Replace with your target site
+      window.location.href = targetURL;
+    }
+  </script>
+</body>
+</html>
