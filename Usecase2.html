@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Test Case Generation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #1f2937;
+        }
+        .slide-container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem;
+            display: grid;
+            gap: 2rem;
+            grid-template-areas:
+                "header header"
+                "actors benefits"
+                "flow flow";
+            animation: fadeIn 1s ease-in-out;
+        }
+        @media (max-width: 768px) {
+            .slide-container {
+                grid-template-areas:
+                    "header header"
+                    "actors actors"
+                    "benefits benefits"
+                    "flow flow";
+                padding: 1.5rem;
+                height: auto;
+            }
+        }
+        .slide-header {
+            grid-area: header;
+            text-align: center;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .actors-section {
+            grid-area: actors;
+        }
+        .benefits-section {
+            grid-area: benefits;
+        }
+        .flow-section {
+            grid-area: flow;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+        .icon {
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+            color: #6366f1;
+        }
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .flow-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .flow-step {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .flow-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .step-number {
+            font-weight: 700;
+            color: #3b82f6;
+            font-size: 2rem;
+            background-color: #eff6ff;
+            border-radius: 9999px;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+        .benefit-icon {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            color: #10b981;
+            min-width: 1.5rem;
+        }
+        .benefit-text {
+            color: #4b5563;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-header">
+            <h1 class="text-3xl font-bold">Summary: Automated Test Creation </h1>
+        </div>
+
+        <div class="actors-section">
+            <h2 class="section-title">
+                <span class="icon">&#x1F464;</span> Actors
+            </h2>
+            <div class="pl-8 text-lg">
+                <p class="mb-2"><span class="font-semibold">Primary:</span> QA Engineer</p>
+                <p><span class="font-semibold">Supporting:</span> AI Agent</p>
+            </div>
+        </div>
+        
+        <div class="benefits-section">
+            <h2 class="section-title">
+                <span class="icon">&#x1F3AF;</span> Benefits
+            </h2>
+            <div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">&#x2705;</span>
+                    <p class="benefit-text"><span class="font-semibold">Improved Test Coverage:</span> Reduces defect leakage and improves overall quality.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">&#x2705;</span>
+                    <p class="benefit-text"><span class="font-semibold">Increased Efficiency:</span> Reduces time and effort for manual test case creation.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">&#x2705;</span>
+                    <p class="benefit-text"><span class="font-semibold">Faster Testing:</span> Speeds up the testing phase for faster product releases.</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">&#x2705;</span>
+                    <p class="benefit-text"><span class="font-semibold">Knowledge Preservation:</span> The system can build a knowledge base of effective test cases over time.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flow-section">
+            <h2 class="section-title">
+                <span class="icon">&#x1F504;</span> Flow
+            </h2>
+            <div class="flow-grid">
+                <div class="flow-step">
+                    <span class="step-number">1</span>
+                    <p class="text-sm">QA provides app details. </p>
+                </div>
+                <div class="flow-step">
+                    <span class="step-number">2</span>
+                    <p class="text-sm">QA extracts user story. </p>
+                </div>
+                <div class="flow-step">
+                    <span class="step-number">3</span>
+                    <p class="text-sm">Creates prompt. </p>
+                </div>
+                <div class="flow-step">
+                    <span class="step-number">4</span>
+                    <p class="text-sm">AI analyzes requirements. </p>
+                </div>
+                <div class="flow-step">
+                    <span class="step-number">5</span>
+                    <p class="text-sm">AI generates test cases. </p>
+                </div>
+                <div class="flow-step">
+                    <span class="step-number">6</span>
+                    <p class="text-sm">QA reviews. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
